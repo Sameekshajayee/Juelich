@@ -11,8 +11,9 @@ file = "FE1BP469M-BI_0000.nii.gz"
 file_path = join(base, file)
 sitk_image = sitk.ReadImage(file_path)
 
+sitk_array = sitk.GetArrayFromImage(sitk_image)
 
-plt.imshow(sitk_array[140, 100:140, 140], cmap='gray')
+plt.imshow(sitk_array[140, :, :], cmap='gray')
 plt.show()
 
 
