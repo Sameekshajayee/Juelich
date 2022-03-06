@@ -44,7 +44,23 @@ apollo_img= np.array(Image.open(apollo_path))
 plt.imshow(apollo_img)
 plt.show()
 
-#c. Visualize the individual RGB channels.
- #Red Channel
+#c. Visualize the individual RGB
+#Red Channel
+plt.imshow(apollo_img[...,0])
+plt.show()
 
+#Blue Channel
+plt.imshow(apollo_img[...,2])
+plt.show()
+
+#d. The red buldog
+apollo_img [:,:,1]=0
+apollo_img[:,:,2]=0
+plt.imshow(apollo_img)
+plt.show()
+
+#e. The blue ear buldog
+
+
+#3. MRI Image
 
