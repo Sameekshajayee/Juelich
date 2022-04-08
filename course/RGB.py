@@ -14,7 +14,6 @@ plt.show()
 plt.imshow(rgb_img [:,:,1],cmap='gray')
 plt.show()
 
-
 # Blue channel
 plt.imshow(rgb_img [:,:,2],cmap='gray')
 plt.show()

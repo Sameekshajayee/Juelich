@@ -60,7 +60,47 @@ plt.imshow(apollo_img)
 plt.show()
 
 #e. The blue ear buldog
+rgb= np.array(Image.open(apollo_path))
+rgb[200:1400, 2400:3200,0]=0
+rgb[200:1400, 2400:3200,1]=0
+plt.imshow(rgb)
+plt.show()
 
 
 #3. MRI Image
+#a. Define the path
+mri= 'numpy_array_image.npy'
+mri_img_path = join(path,mri)
+#b. np.load will load and create a numpy array from the file
+mri_img= np.load(mri_img_path)
 
+#c. Theh tumor will be good at slice 30, visualise that part
+plt.imshow(mri_img[:,:,30], cmap='gray')
+plt.show()
+
+#d. Crop only the tumor region for this slice
+tumor_region= mri_img[150:180, 40:70, 30]
+plt.imshow(tumor_region,cmap='gray')
+plt.show()
+
+#e. Play around crop interesting organs
+#ventrical region
+plt.imshow(mri_img[80:150,60:115,110], cmap='gray')
+plt.show()
+#putamen
+plt.imshow(mri_img[90:130,58:72,100], cmap='gray')
+plt.show()
+
+#f. So, far we only visualized the axial view. Let's inspect the tumor region horizontally and sagittal
+#sagittal view
+plt.imshow(mri_img[:,85,:], cmap='gray')
+plt.show()
+plt.imshow(np.rot90(mri_img[:,85,:]), cmap='gray')
+plt.show()
+
+#Coronal
+plt.imshow(np.rot90(mri_img[90,:,:]), cmap='gray')
+plt.show()
+# Nucleus Caudatus
+plt.imshow(np.rot90(mri_img[90,60:120,80:120]), cmap='gray')
+plt.show()
